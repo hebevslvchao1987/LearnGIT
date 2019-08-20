@@ -1,7 +1,21 @@
-# 这是一个修改后的文件
-# 再次修改,提交github
-# 再修改，提交github
-# 搞点别的湾湾
+import random
 
-def a:
-    pass
+N = 1000000
+pointcount = 5
+goodcount = 0
+for i in range(N):
+    points = []
+    gaplist = []
+    for j in range(pointcount):
+        points.append(random.uniform(0, 360))
+    points.sort()
+    for k in range(pointcount):
+        gap = points[pointcount - 1 - k] - points[0 - k]
+        if (gap < 0):
+            gap = gap + 360
+        gaplist.append(gap)
+    mingap = min(gaplist)
+    if (mingap < 180):
+        goodcount = goodcount + 1
+ratio = goodcount / N
+print(ratio)
